@@ -1,0 +1,14 @@
+server:
+  port: 10001
+
+spring:
+  profiles:
+    active: secret
+  application:
+    name: while-you-play
+  cloud:
+    nacos:
+      server-addr: 198.18.0.1:8848
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/pink_sheep?characterEncoding=UTF-8&serverTimeZone=GMT%2B8&allowPublicKeyRetrieval=true&useSSL=false
