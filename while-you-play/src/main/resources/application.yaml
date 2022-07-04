@@ -13,10 +13,13 @@ spring:
     name: while-you-play
   cloud:
     nacos:
-      server-addr: 198.18.0.1:8848
+      server-addr: 127.0.0.1:8848
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://127.0.0.1:3306/pink_sheep?characterEncoding=UTF-8&serverTimeZone=GMT%2B8&allowPublicKeyRetrieval=true&useSSL=false
+  rabbitmq:
+    username: YangHgRi
+    password: S36871414
 #定位日志配置文件
 logging:
   config: classpath:log4j2.yaml
