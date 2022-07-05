@@ -10,10 +10,10 @@ import java.time.format.DateTimeFormatter;
 
 @Slf4j
 @Component
+@Async
 public class LogTask {
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-    @Async
     @Scheduled(cron = "0/10 * * * * *")
     public void logCurrentTime() {
         log.info(dateTimeFormatter.format(LocalDateTime.now()));
