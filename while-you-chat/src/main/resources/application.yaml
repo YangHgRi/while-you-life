@@ -1,0 +1,17 @@
+server:
+  port: 10002
+  servlet:
+    context-path: /while-you-chat
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+spring:
+  application:
+    name: while-you-chat
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+#定位日志配置文件
+logging:
+  config: classpath:log4j2.yaml

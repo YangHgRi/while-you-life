@@ -45,10 +45,14 @@
             <version>1.2.11</version>
         </dependency>
 
-        <!--redis组件-->
+        <!--redis及缓存组件-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
         </dependency>
 
         <!--rabbitmq组件-->
@@ -62,12 +66,6 @@
             <groupId>io.minio</groupId>
             <artifactId>minio</artifactId>
             <version>8.4.2</version>
-        </dependency>
-
-        <!--netty组件-->
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
         </dependency>
     </dependencies>
 </project>

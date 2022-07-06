@@ -17,6 +17,8 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://127.0.0.1:3306/pink_sheep?characterEncoding=UTF-8&serverTimeZone=GMT%2B8&allowPublicKeyRetrieval=true&useSSL=false
+  cache:
+    type: redis
   rabbitmq:
     host: 127.0.0.1
     port: 15672
