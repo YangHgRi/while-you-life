@@ -14,24 +14,51 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConf {
+    /**
+     * 密码编码器
+     *
+     * @return {@link PasswordEncoder}
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * 身份验证管理器
+     *
+     * @param authenticationConfiguration 身份验证配置
+     * @return {@link AuthenticationManager}
+     * @throws Exception 异常
+     */
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
+    /**
+     * 配置过滤路径
+     *
+     * @return {@link WebSecurityCustomizer}
+     */
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (webSecurity) -> webSecurity.ignoring().antMatchers("/login", "/logon");
+        return (webSecurity) -> webSecurity.ignoring().antMatchers("/signin", "/signup");
     }
 
+    /**
+     * 构建过滤器链
+     *
+     * @param httpSecurity http安全性
+     * @return {@link SecurityFilterChain}
+     * @throws Exception 异常
+     */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.httpBasic();
+        //先配置对任何路径都要求认证
+        httpSecurity.authorizeRequests().anyRequest().authenticated();
+        //然后配置对登录页放行，permitAll()表示任何人都可以在无需认证的情况下访问
+        httpSecurity.formLogin().permitAll();
         return httpSecurity.build();
     }
 }
