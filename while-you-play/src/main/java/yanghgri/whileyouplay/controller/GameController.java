@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/game")
 public class GameController {
     private final RedisTemplate<String, Object> redisTemplate;
-    ValueOperations<String, Object> redisValueOperations;
+    private final ValueOperations<String, Object> redisValueOperations;
+
 
     @Autowired
     public GameController(RedisTemplate<String, Object> redisTemplate) {
