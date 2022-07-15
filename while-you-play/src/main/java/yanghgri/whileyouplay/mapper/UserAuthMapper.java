@@ -13,7 +13,7 @@ public interface UserAuthMapper {
 
     Long selectUserIdByUserName(@Param("username") String username);
 
-    Set<Long> selectRoleIdListByUserId(@Param("userId") Long userId);
+    Set<Long> selectRoleIdSetByUserId(@Param("userId") Long userId);
 
-    Set<String> selectRoleNameListByRoleIdList(@Param("roleIdList") Set<Long> roleIdList);
+    Set<String> selectRoleNameSetByRoleIdSet(@Param("roleIdSet") Set<Long> roleIdSet);
 }

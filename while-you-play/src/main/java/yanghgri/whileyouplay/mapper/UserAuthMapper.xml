@@ -18,16 +18,19 @@
     </select>
 
     <!--按照用户ID查找所属角色ID列表-->
-    <select id="selectRoleIdListByUserId" parameterType="long" resultType="long">
+    <select id="selectRoleIdSetByUserId" parameterType="long" resultType="long">
         SELECT urr.role_id
         FROM user_role_relation as urr
         WHERE urr.user_id = #{userId}
     </select>
 
     <!--按照角色ID列表查找角色名列表-->
-    <select id="selectRoleNameListByRoleIdList" parameterType="long" resultType="string">
+    <select id="selectRoleNameSetByRoleIdSet" parameterType="long" resultType="string">
         SELECT r.name
         FROM role as r
-        WHERE r.id IN #{roleIdList}
+        WHERE r.id IN
+        <foreach collection="roleIdSet" item="roleId" open="(" separator="," close=")">
+            #{roleId}
+        </foreach>
     </select>
 </mapper>

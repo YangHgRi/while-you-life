@@ -29,7 +29,7 @@ public class User4Auth implements UserDetails {
     //账号启用中
     private boolean enabled = true;
     //用户角色列表
-    private final Set<GrantedAuthority> authoritySet = new HashSet<>();
+    private final Set<GrantedAuthority> authoritySet;
 
     /**
      * 获取用户角色列表

@@ -23,7 +23,7 @@ Configuration:
         max: 4
   Loggers:
     Root:
-      level: info
+      level: debug
       AppenderRef:
         - ref: Console
         - ref: RollingFile
