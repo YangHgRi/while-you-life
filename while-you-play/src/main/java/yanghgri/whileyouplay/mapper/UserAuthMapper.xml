@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yanghgri.whileyouplay.mapper.UserAuthMapper">
+    <!--按照用户名查找用户密码-->
+    <select id="selectPasswordByUserName" parameterType="string" resultType="string">
+        SELECT u.password
+        FROM user as u
+        WHERE u.username = #{username}
+    </select>
+
+    <!--按照用户名查找用户ID-->
+    <select id="selectUserIdByUserName" parameterType="string" resultType="long">
+        SELECT u.id
+        FROM user as u
+        WHERE u.username = #{username}
+    </select>
+
+    <!--按照用户ID查找所属角色ID列表-->
+    <select id="selectRoleIdListByUserId" parameterType="long" resultType="long">
+        SELECT urr.role_id
+        FROM user_role_relation as urr
+        WHERE urr.user_id = #{userId}
+    </select>
+
+    <!--按照角色ID列表查找角色名列表-->
+    <select id="selectRoleNameListByRoleIdList" parameterType="long" resultType="string">
+        SELECT r.name
+        FROM role as r
+        WHERE r.id IN #{roleIdList}
+    </select>
+</mapper>
